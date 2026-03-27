@@ -618,7 +618,7 @@ function Assistant() {
       {/* Footer */}
       <footer className="px-6 py-4 border-t border-slate-100 dark:border-slate-900 text-center">
         <p className="text-xs text-slate-400">
-          Powered by Gemini AI • Built for noisy minds
+          MADE WITH <span className="text-red-500">❤</span> BY MAHI AND SUNEETI | Powered by Google Gemini API & Firebase
         </p>
       </footer>
     </div>
