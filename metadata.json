@@ -1,0 +1,5 @@
+{
+  "name": "ReadEase AI Virtual Assistant",
+  "description": "A quiet companion for noisy minds. Summarize, explain, and improve your text with AI.",
+  "requestFramePermissions": ["microphone"]
+}

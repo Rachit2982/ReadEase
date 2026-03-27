@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user-specific settings and profile information.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique Firebase Auth ID." },
+        "email": { "type": "string", "format": "email", "description": "User's email address." },
+        "displayName": { "type": "string", "description": "User's display name." },
+        "photoURL": { "type": "string", "format": "uri", "description": "User's profile picture URL." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the user account was created." }
+      },
+      "required": ["uid", "email"]
+    },
+    "HistoryItem": {
+      "title": "History Item",
+      "description": "A single AI interaction record.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique ID for the history item." },
+        "uid": { "type": "string", "description": "The ID of the user who owns this item." },
+        "mode": { "type": "string", "enum": ["summarize", "explain", "improve", "simplify"], "description": "The AI mode used." },
+        "input": { "type": "string", "description": "The text provided by the user." },
+        "output": { "type": "string", "description": "The AI-generated response." },
+        "timestamp": { "type": "integer", "description": "Unix timestamp of the interaction." }
+      },
+      "required": ["id", "uid", "mode", "input", "output", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Private user profile data."
+    },
+    "/users/{userId}/history/{itemId}": {
+      "schema": "HistoryItem",
+      "description": "User's personal AI interaction history."
+    }
+  }
+}
